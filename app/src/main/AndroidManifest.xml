@@ -10,7 +10,7 @@
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE"/>
 <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-<application android:theme="@style/Theme.KemzyAir" android:label="Kémzy Air" android:allowBackup="false" android:supportsRtl="true">
+<application android:theme="@style/Theme.KemzyAir" android:label="Kémzyair" android:icon="@drawable/ic_kemzyair" android:allowBackup="false" android:supportsRtl="true">
 <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
 <service android:name=".AirService" android:exported="false" android:foregroundServiceType="camera|connectedDevice"/>
 </application></manifest>
