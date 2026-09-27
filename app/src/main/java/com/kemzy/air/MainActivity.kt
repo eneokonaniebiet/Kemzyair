@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.result.contract.ActivityResultContracts\nimport android.content.Intent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -52,7 +52,10 @@ class MainActivity:ComponentActivity(),AirTransfer.Callbacks{
   },ContextCompat.getMainExecutor(this))
  }
  override fun status(s:String){runOnUiThread{status.text=s}}
- override fun pairingRequest(id:String,name:String,code:String){runOnUiThread{AlertDialog.Builder(this).setTitle("Pair Kémzy Air").setMessage("Connect to $name?\n\nConfirm this code matches on both phones:\n$code").setPositiveButton("Pair"){_,_->AirTransfer.acceptPair(id)}.setNegativeButton("Cancel"){_,_->AirTransfer.rejectPair(id)}.setCancelable(false).show()}}
+ override fun pairingRequest(id:String,name:String,code:String){runOnUiThread{AlertDialog.Builder(this).setTitle("Pair Kémzy Air").setMessage("Connect to $name?
+
+Confirm this code matches on both phones:
+$code").setPositiveButton("Pair"){_,_->AirTransfer.acceptPair(id)}.setNegativeButton("Cancel"){_,_->AirTransfer.rejectPair(id)}.setCancelable(false).show()}}
  override fun deviceFound(name:String){runOnUiThread{status.text="Found nearby: $name"}}
  override fun transferProgress(p:Int){runOnUiThread{status.text="Air Transfer • $p%"}}
  override fun received(name:String){runOnUiThread{status.text="✓ $name saved to Gallery"}}
