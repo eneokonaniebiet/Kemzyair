@@ -1,5 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
- <androidx.camera.view.PreviewView android:id="@+id/preview" android:layout_width="match_parent" android:layout_height="match_parent"/>
- <TextView android:id="@+id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|center_horizontal" android:layout_marginTop="28dp" android:padding="12dp" android:text="Kémzy Air • Camera starting…" android:textColor="#FFFFFF" android:background="#99000000"/>
- <Button android:id="@+id/gallery" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="40dp" android:text="Gallery Air Transfer"/>
-</FrameLayout>
+<androidx.camera.view.PreviewView android:id="@+id/preview" android:layout_width="match_parent" android:layout_height="match_parent"/>
+<TextView android:id="@+id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|center_horizontal" android:layout_marginTop="28dp" android:padding="12dp" android:text="Kémzy Air • starting…" android:textColor="#FFFFFF" android:background="#99000000"/>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="bottom" android:gravity="center" android:orientation="horizontal" android:padding="12dp">
+<Button android:id="@+id/pair" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pair Phone"/>
+<Button android:id="@+id/gallery" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gallery"/>
+<Button android:id="@+id/send" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Air Send"/>
+</LinearLayout></FrameLayout>
