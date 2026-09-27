@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts\nimport android.content.Intent
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -23,11 +23,11 @@ class MainActivity:ComponentActivity(),AirTransfer.Callbacks{
  private val executor=Executors.newSingleThreadExecutor()
  private var selected:Uri?=null
  private val permissions=registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){startCamera();startAir()}
- private val picker=registerForActivityResult(ActivityResultContracts.GetContent()){u->if(u!=null){selected=u;status.text="Gallery item selected • PINCH/GRAB to send"}}
+ private val picker=registerForActivityResult(ActivityResultContracts.OpenDocument()){u->if(u!=null){selected=u;status.text="Gallery item selected • PINCH/GRAB to send"}}
  override fun onCreate(b:Bundle?){
   super.onCreate(b);setContentView(R.layout.activity_main)
   preview=findViewById(R.id.preview);status=findViewById(R.id.status)
-  findViewById<Button>(R.id.gallery).setOnClickListener{picker.launch("image/* video/*")}
+  findViewById<Button>(R.id.gallery).setOnClickListener{picker.launch(arrayOf("image/*","video/*"))}
   findViewById<Button>(R.id.pair).setOnClickListener{startAir()}
   findViewById<Button>(R.id.send).setOnClickListener{selected?.let{AirTransfer.sendUri(it)}?:run{status.text="Choose a Gallery photo or video first"}}
   val p=mutableListOf(Manifest.permission.CAMERA)
