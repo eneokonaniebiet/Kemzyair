@@ -121,7 +121,8 @@ object AirTransfer {
         val x=ctx ?: return
         Thread{
             try{
-                val uri=p.asFile().asUri()
+                val receivedFile=requireNotNull(p.asFile()) { "Nearby file payload unavailable" }
+                val uri=requireNotNull(receivedFile.asUri()) { "Nearby file URI unavailable" }
                 val mime=x.contentResolver.getType(uri) ?: "application/octet-stream"
                 val ext=android.webkit.MimeTypeMap.getSingleton().getExtensionFromMimeType(mime)?.let{"."+it} ?: ""
                 val filename="Kémzy-"+System.currentTimeMillis()+ext
